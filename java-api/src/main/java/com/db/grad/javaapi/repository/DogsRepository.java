@@ -12,4 +12,6 @@ public interface DogsRepository extends JpaRepository<Dog, Long>
 {
     @Query(nativeQuery = true, value = "select * from dogs where name = :name")
     List<Dog> findByName(Dog name);
+
+
 }
