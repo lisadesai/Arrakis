@@ -13,6 +13,8 @@ import NavbarCollapse from 'react-bootstrap/esm/NavbarCollapse';
 import { Route, Routes} from "react-router";
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
+import db2 from './images/db2.jpg'
 
 const App = () => {
 
@@ -20,7 +22,7 @@ const App = () => {
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-           <img></img>
+           <img src={db2} height='50px'/>
           <Navbar.Brand href="/home">FIC Trading Application</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
