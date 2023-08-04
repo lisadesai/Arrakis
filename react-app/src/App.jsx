@@ -14,14 +14,14 @@ import { Route, Routes} from "react-router";
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 const App = () => {
 
   return (
     <>
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-          <Navbar.Brand href="/">Trading Application</Navbar.Brand>
+           <img></img>
+          <Navbar.Brand href="/home">FIC Trading Application</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -36,7 +36,7 @@ const App = () => {
         <Route path="allbonds" element={<Bonds/>} />
         <Route path="allbooks" element={<Books/>} />
         <Route path="alltrades" element={<Trades/>} />
-        <Route path="/" element={<Bonds/>} />
+        <Route path="/home" element={<Home/>} />
       </Routes>
     </>
   );

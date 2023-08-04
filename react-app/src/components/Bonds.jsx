@@ -26,14 +26,15 @@ export const Bonds = () => {
   return (
     <>
     <div>
-    <h3>All Bonds </h3>  
+    <h3 align="center">All Bonds </h3>  
         <div className="App">
           <DataTable value={bonds} stripedRows showGridlines tableStyle={{minWidth:'50rem'}}>
           <Column field="id" sortable header="ID" style={{display: 'none'}}> </Column>
             <Column field="isin" sortable header="ISIN"> </Column>
+            <Column field="cusip" sortable header="CUSIP"> </Column>
             <Column field="issuer_name" sortable header="Issuer"> </Column>
-            <Column field="mature_date" sortable header="Coupon Rate"> </Column>
-            <Column field="coupon_rate" sortable header="ISIN"> </Column>
+            <Column field="mature_date" sortable header="Maturity Date"> </Column>
+            <Column field="coupon_rate" sortable header="Coupon"> </Column>
             <Column field="bond_type" sortable header="Type"> </Column>
             <Column field="face_value" sortable header="Face Value"> </Column>
             <Column field="bond_currency" sortable header="Bond Currency"> </Column>
@@ -42,14 +43,15 @@ export const Bonds = () => {
         </div>
             <p>.</p>
             <p>.</p>
-            <h3>Bonds Maturing in +/- 5 Days </h3>  
+            <h3 align="center">Bonds Maturing in +/- 5 Days </h3>  
         <div className="App">
-          <DataTable value={bondsMaturing} stripedRows showGridlines tableStyle={{minWidth:'50rem'}}>
+        <DataTable value={bondsMaturing} stripedRows showGridlines tableStyle={{minWidth:'50rem'}}>
           <Column field="id" sortable header="ID" style={{display: 'none'}}> </Column>
             <Column field="isin" sortable header="ISIN"> </Column>
+            <Column field="cusip" sortable header="CUSIP"> </Column>
             <Column field="issuer_name" sortable header="Issuer"> </Column>
-            <Column field="mature_date" sortable header="Coupon Rate"> </Column>
-            <Column field="coupon_rate" sortable header="ISIN"> </Column>
+            <Column field="mature_date" sortable header="Maturity Date"> </Column>
+            <Column field="coupon_rate" sortable header="Coupon"> </Column>
             <Column field="bond_type" sortable header="Type"> </Column>
             <Column field="face_value" sortable header="Face Value"> </Column>
             <Column field="bond_currency" sortable header="Bond Currency"> </Column>

@@ -17,7 +17,7 @@ export const Trades = () => {
     //
     return (
         <>
-            <h3>All Trades </h3>  
+            <h3 align="center">All Trades </h3>  
             <div className="App">
                 <DataTable value={trades} showGridlines tableStyle={{ minWidth: '50rem' }}>
                     <Column field="trade_id" sortable header="Trade ID" style={{display: 'none'}}> </Column>
