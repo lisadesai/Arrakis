@@ -24,7 +24,7 @@ public class Securities {
     @Column(name = "issuer_name", nullable = false)
     private String issuer_name;
     @Column(name = "mature_date")
-    private Date mature_date;
+    private String mature_date;
     @Column(name = "status", nullable = false)
     private String status;
     @Column(name = "bond_type", nullable = false)
@@ -86,11 +86,11 @@ public class Securities {
         this.issuer_name = issuer_name;
     }
 
-    public Date getMature_date() {
+    public String getMature_date() {
         return mature_date;
     }
 
-    public void setMature_date(Date mature_date) {
+    public void setMature_date(String mature_date) {
         this.mature_date = mature_date;
     }
 

@@ -15,14 +15,14 @@ export const Bonds = () => {
             });
     }, []);
     
-    const [bondsMaturing, setBondsMaturing] = useState([]);
+    // const [bondsMaturing, setBondsMaturing] = useState([]);
 
-    useEffect(() => {
-      bondsToMature()
-            .then(({data}) => {
-            setBondsMaturing(data);
-            });
-    }, []);
+    // useEffect(() => {
+    //   bondsToMature()
+    //         .then(({data}) => {
+    //         setBondsMaturing(data);
+    //         });
+    // }, []);
   return (
     <>
     <div>
@@ -44,7 +44,7 @@ export const Bonds = () => {
             <p>.</p>
             <p>.</p>
             <h3 align="center">Bonds Maturing in +/- 5 Days </h3>  
-        <div className="App">
+        {/* <div className="App">
         <DataTable value={bondsMaturing} stripedRows showGridlines tableStyle={{minWidth:'50rem'}}>
           <Column field="id" sortable header="ID" style={{display: 'none'}}> </Column>
             <Column field="isin" sortable header="ISIN"> </Column>
@@ -57,7 +57,7 @@ export const Bonds = () => {
             <Column field="bond_currency" sortable header="Bond Currency"> </Column>
             <Column field="status" sortable header="Status"> </Column>
           </DataTable>
-        </div>
+        </div> */}
     </div>
     </>
   )

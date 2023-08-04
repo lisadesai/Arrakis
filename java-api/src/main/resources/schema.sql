@@ -1,4 +1,6 @@
-DROP TABLE IF EXISTS dogs, book, securities;
+--DROP TABLE IF EXISTS dogs, book, securities;
+DROP TABLE IF EXISTS dogs, trade, securities, book_user, counter_party, book, users;
+
 
 CREATE TABLE dogs (
     dog_id INT NOT NULL,
