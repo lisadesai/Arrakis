@@ -18,13 +18,14 @@ export const MatureBonds = () => {
     // const [updated, setUpdated] = useState(inputText)
 
     const handleChange = (event) => {
-        setInput(event.target.value)
+        setInput(event.target.value);
     };
 
 
     const handleSubmit=(event) =>{
         event.preventDefault();
-        setInput2(inputText)
+        setInput2(inputText);
+        console.log(input2);
     }
 
     useEffect(() => {
@@ -33,7 +34,7 @@ export const MatureBonds = () => {
             .then(({ data }) => {
                 setBondsMaturing(data);
             });}
-    }, []);
+    }, [input2]);
 
     const [filters, setFilters] = useState({
         global: { value: null, matchMode: FilterMatchMode.CONTAINS },
