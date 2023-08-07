@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom"
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-// import { saveHero } from '../services/hero-service';
+ import { saveUser } from '../services/UserService';
 
 const UserForm = () => {
   const [name, setName] = useState('');
@@ -31,7 +31,7 @@ const UserForm = () => {
     hero.name = name;
     hero.email = email;
     hero.role = role;
-    saveHero(hero) //get this from service
+    saveUser(hero) 
     .then(res => {
       setName('');
       setEmail('');
@@ -43,26 +43,28 @@ const UserForm = () => {
     })
   }
   return (
-    <Row className='userForm'>
+    <div class='col-sm-4 '> 
+    <Row className='userForm' >
       <Form>
-        <Form.Group className="mb-3" controlId="alias">
+        <Form.Group className="mb-2" controlId="email">
           <Form.Label> Name: </Form.Label>
-          <Form.Control type="text" placeholder="Name" value={alias} onChange={handleNameChange} />
+          <Form.Control type="text" placeholder="Name" value={name} onChange={handleNameChange} />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
+        <Form.Group className="mb-3 " controlId="name">
           <Form.Label> Email: </Form.Label>
-          <Form.Control type="text" placeholder="Email" value={name} onChange={handleEmail} />
+          <Form.Control type="text" placeholder="Email" value={email} onChange={handleEmail} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="ability">
           <Form.Label> Role: </Form.Label>
-          <Form.Control type="text" placeholder="Role" value={ability} onChange={handleRole} />
+          <Form.Control type="text" placeholder="Role" value={role} onChange={handleRole} />
         </Form.Group>
-          
+
         <Button variant="primary" type="submit" onClick={handleSubmit}>
           Submit
         </Button>
       </Form>
     </Row>
+    </div>
   )
 }
 

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Books} from "./components/Books";
 import { Bonds} from "./components/Bonds";
 import { Trades} from "./components/Trades";
-
+import UserForm from "./components/UserForm";
 import Home from './components/Home';
+import Login from './components/Login';
 
 import 'primereact/resources/themes/lara-light-purple/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -23,13 +24,14 @@ const App = () => {
       <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
            <img src={db2} height='50px'/>
-          <Navbar.Brand href="/home">FIC Trading Application</Navbar.Brand>
+          <Navbar.Brand href="/">FIC Trading Application</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/allbonds">All Bonds</Nav.Link>
               <Nav.Link href="/allbooks">All Books</Nav.Link>
               <Nav.Link href="/alltrades">All Trades</Nav.Link>
+              <Nav.Link href="/adduser">Sign Up</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -38,7 +40,9 @@ const App = () => {
         <Route path="allbonds" element={<Bonds/>} />
         <Route path="allbooks" element={<Books/>} />
         <Route path="alltrades" element={<Trades/>} />
+        <Route path="adduser" element={<UserForm/>} />
         <Route path="/home" element={<Home/>} />
+        <Route path="/" element={<Login/>} />
       </Routes>
     </>
   );

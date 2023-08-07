@@ -14,7 +14,7 @@ export const Trades = () => {
                 setTrades(data);
             });
     }, []);
-    //
+    
     return (
         <>
             <h3 align="center">All Trades </h3>  
