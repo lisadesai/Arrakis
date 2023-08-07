@@ -12,70 +12,51 @@ import Button from 'react-bootstrap/Button';
 export const MatureBonds = () => {
 
     const [bondsMaturing, setBondsMaturing] = useState([]);
+    
 
-    const [inputText, setInput] = useState('2020-01-01');
+    const [input1, setInput1] = useState('2020-01-01');
     const [input2, setInput2] = useState(null)
     // const [updated, setUpdated] = useState(inputText)
 
     const handleChange = (event) => {
-        setInput(event.target.value)
+        setInput1(event.target.value);
     };
 
 
     const handleSubmit=(event) =>{
         event.preventDefault();
-        setInput2(inputText)
+        setInput2(input1);
     }
 
     useEffect(() => {
         if (input2 != null){
+        
         bondsToMature(input2)
             .then(({ data }) => {
                 setBondsMaturing(data);
-            });}
-    }, []);
+            });
+         }
+    }, [input2]);
 
-    const [filters, setFilters] = useState({
-        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-        mature_date: { value: null, matchMode: FilterMatchMode.CONTAINS },
-
-    });
-    const [globalFilterValue, setGlobalFilterValue] = useState('');
-    const onGlobalFilterChange = (e) => {
-        const value = e.target.value;
-        let _filters = { ...filters };
-
-        _filters['global'].value = value;
-
-        setFilters(_filters);
-        setGlobalFilterValue(value);
-    };
-
-    const renderHeader = () => {
-        return (
-            <div className="flex justify-content-end">
-                <span className="p-input-icon-left">
-                    <i className="pi pi-search" />
-                    <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
-                </span>
-            </div>
-        );
-    };
-    const header = renderHeader();
+   
 
     return (
         <>
             <div>
                 <h3 align="center">Bonds Maturing in +/- 5 Days </h3>
-                <Form.Group className='mb-3' controlId='inputText'>
+                <div align='center'>
+                <Form.Group className='mb-3' controlId='input1'>
                         <Form.Label>Enter Maturity Date</Form.Label>
-                        <Form.Control type="text" placeholder="YYYY-MM-DD" value={inputText} onChange={handleChange}></Form.Control>
+                        <Form.Control type="text" placeholder="YYYY-MM-DD" value={input1} onChange={handleChange}></Form.Control>
                 </Form.Group>
+                </div>
+                <div align='center'>
                 <Button variant='primary' type='submit' onClick={handleSubmit}>
                     Search
                 </Button>
+                </div>
                 <div className="App">
-                    <DataTable value={bondsMaturing} paginator rows={5} rowsPerPageOptions={[5, 10, 15]} filters={filters} filterDisplay="menu" globalFilterFields={['mature_date']} header={header} stripedRows showGridlines tableStyle={{ minWidth: '50rem' }}>
+                    <DataTable value={bondsMaturing} paginator rows={5} rowsPerPageOptions={[5, 10, 15]}  filterDisplay="menu" globalFilterFields={['mature_date']} stripedRows showGridlines tableStyle={{ minWidth: '50rem' }}>
                         <Column field="id" sortable header="ID" style={{ display: 'none' }}> </Column>
                         <Column field="isin" sortable header="ISIN"> </Column>
                         <Column field="cusip" sortable header="CUSIP"> </Column>
@@ -93,3 +74,32 @@ export const MatureBonds = () => {
     )
 };
 
+//header={header} filters={filters}
+
+ // const [filters, setFilters] = useState({
+    //     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+    //     mature_date: { value: null, matchMode: FilterMatchMode.CONTAINS },
+
+    // });
+    // const [globalFilterValue, setGlobalFilterValue] = useState('');
+    // const onGlobalFilterChange = (e) => {
+    //     const value = e.target.value;
+    //     let _filters = { ...filters };
+
+    //     _filters['global'].value = value;
+
+    //     setFilters(_filters);
+    //     setGlobalFilterValue(value);
+    // };
+
+    // const renderHeader = () => {
+    //     return (
+    //         <div className="flex justify-content-end">
+    //             <span className="p-input-icon-left">
+    //                 <i className="pi pi-search" />
+    //                 <InputText value={globalFilterValue} onChange={onGlobalFilterChange} placeholder="Keyword Search" />
+    //             </span>
+    //         </div>
+    //     );
+    // };
+    // const header = renderHeader();
