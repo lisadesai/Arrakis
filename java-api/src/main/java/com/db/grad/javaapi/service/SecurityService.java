@@ -107,4 +107,38 @@ public class SecurityService implements ISecurityService {
     public Securities findDates(Securities start, Securities end) {
         return null;
     }
+
+    @Override
+    public Optional<List<Securities>> findMaturingToday(String today_date) {
+        List<Securities> checkList = itsSecuritysRepo.findAll();
+        List<Securities> matList = new LinkedList<>(); //list w matured bonds
+        for (Securities ss : checkList){
+            long daysBetween = ChronoUnit.DAYS.between(LocalDate.parse(today_date), LocalDate.parse(ss.getMature_date()));
+            //can return a negative number
+            //looking for negative 5 to positive 5 for before and after
+            if (daysBetween == 0) {
+                //view bonds due for maturity within last and next five days
+                matList.add(ss);
+            }
+        }
+
+        return Optional.of(matList);
+    }
+
+    @Override
+    public Optional<List<Securities>> findExpired(String today_date) {
+        List<Securities> checkList = itsSecuritysRepo.findAll();
+        List<Securities> matList = new LinkedList<>(); //list w matured bonds
+        for (Securities ss : checkList){
+            long daysBetween = ChronoUnit.DAYS.between(LocalDate.parse(today_date), LocalDate.parse(ss.getMature_date()));
+            //can return a negative number
+            //looking for negative 5 to positive 5 for before and after
+            if (daysBetween < 0) {
+                //view bonds due for maturity within last and next five days
+                matList.add(ss);
+            }
+        }
+
+        return Optional.of(matList);
+    }
 }

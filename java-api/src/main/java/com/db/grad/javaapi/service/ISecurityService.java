@@ -24,5 +24,9 @@ public interface ISecurityService {
     public Optional<List<Securities>> findByRecentAndNearMaturity(String today_date);
     public Securities findDates(Securities start, Securities end);
 
+    public Optional<List<Securities>> findMaturingToday(String today_date);
+
+    public Optional<List<Securities>> findExpired(String today_date);
+
 //    public Securities updateUserDetails(Securities UserToUpdate);
 }

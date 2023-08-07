@@ -7,6 +7,12 @@ export const findBonds = () => {
   return bonds;
 };
 
+
+// export const findExpiredBonds = () => {
+//   const bonds = axios.get(`${hostNameUrl}/securities`);
+//   return bonds;
+// };
+
 //function that finds all bonds about to mature in NEXT or LAST five days
 //todo: pass a parameter of date/string to search database on
 export const bondsToMature = (date) => {
