@@ -34,8 +34,7 @@ export const MatureBonds = () => {
         bondsToMature(input2)
             .then(({ data }) => {
                 setBondsMaturing(data);
-            });
-         }
+            });}
     }, [input2]);
 
    
