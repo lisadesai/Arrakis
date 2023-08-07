@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -30,6 +31,12 @@ public class SecurityController {
 //        return ResponseEntity.ok().body(security);
 //    }
 
+    @GetMapping("/securitiesByDate/{date}")
+    public ResponseEntity <Optional<List<Securities>>>findByRecentAndNearMaturity(@PathVariable(value = "date") String date)
+            throws ResourceNotFoundException {
+        Optional<List<Securities>> matSecurity = securityService.findByRecentAndNearMaturity(date);
+        return ResponseEntity.ok().body(matSecurity);
+    }
 
     @GetMapping("/securities")
     public List <Securities> getAllSecurities() {

@@ -19,11 +19,11 @@ export const Trades = () => {
         <>
             <h3 align="center">All Trades </h3>  
             <div className="App">
-                <DataTable value={trades} showGridlines tableStyle={{ minWidth: '50rem' }}>
+                <DataTable value={trades} paginator rows={5} rowsPerPageOptions={[5,10,15]} filterDisplay ="menu" showGridlines tableStyle={{ minWidth: '50rem' }}>
                     <Column field="trade_id" sortable header="Trade ID" style={{display: 'none'}}> </Column>
-                    <Column field="book_id" sortable header="Book ID" > </Column>
+                    {/* <Column field="book_id" sortable header="Book ID" > </Column>
                     <Column field="security_id" sortable header="Security ID" > </Column>
-                    <Column field="cp_id" sortable header="CP ID" > </Column>
+                    <Column field="cp_id" sortable header="CP ID" > </Column> */}
                     <Column field="currency" sortable header="Currency"> </Column>
                     <Column field="t_status" sortable header="Status"> </Column>
                     <Column field="quantity" sortable header="Quantity" > </Column>

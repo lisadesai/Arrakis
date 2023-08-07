@@ -51,10 +51,10 @@ public class TradeController {
         return ResponseEntity.ok().body(users);
     }
 
-    @PostMapping("/trades")
-    public Trade createTrade(@Valid @RequestBody Trade trade) {
-        return tradeService.addTrade(trade);
-    }
+//    @PostMapping("/trades")
+//    public Trade createTrade(@Valid @RequestBody Trade trade) {
+//        return tradeService.addTrade(trade);
+//    }
 
     @DeleteMapping("/trades/{trade_id}")
     public Map < String, Boolean > deleteUsers(@PathVariable(value = "trade_id") int trade_id)

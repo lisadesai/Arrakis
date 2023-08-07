@@ -18,11 +18,11 @@ public class Trade {
     @Column(name = "unit_price", nullable = false)
     private float unit_price;
     @Column(name = "settle_date", nullable = false)
-    private Date settle_date;
+    private String settle_date;
     @Column(name = "t_status", nullable = false)
     private String t_status;
     @Column(name = "trade_date", nullable = false)
-    private Date trade_date;
+    private String trade_date;
     @Column(name = "buy_sell", nullable = false)
     private String buy_sell;
     @ManyToOne
@@ -64,11 +64,11 @@ public class Trade {
         this.quantity = quantity;
     }
 
-    public Date getSettle_date() {
+    public String getSettle_date() {
         return settle_date;
     }
 
-    public void setSettle_date(Date settle_date) {
+    public void setSettle_date(String settle_date) {
         this.settle_date = settle_date;
     }
 
@@ -80,11 +80,11 @@ public class Trade {
         this.t_status = t_status;
     }
 
-    public Date getTrade_date() {
+    public String getTrade_date() {
         return trade_date;
     }
 
-    public void setTrade_date(Date trade_date) {
+    public void setTrade_date(String trade_date) {
         this.trade_date = trade_date;
     }
 
