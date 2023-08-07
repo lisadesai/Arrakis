@@ -17,15 +17,7 @@ export const Bonds = () => {
             });
     }, []);
     
-    // const [bondsMaturing, setBondsMaturing] = useState([]);
-
-    // useEffect(() => {
-    //   bondsToMature()
-    //         .then(({data}) => {
-    //         setBondsMaturing(data);
-    //         });
-    // }, []);
-
+ 
     const [filters, setFilters] = useState({
       global: { value: null, matchMode: FilterMatchMode.CONTAINS },
       isin: { value: null, matchMode: FilterMatchMode.CONTAINS },
@@ -80,9 +72,9 @@ const header = renderHeader();
             <Column field="status" sortable header="Status"> </Column>
           </DataTable>
         </div>
-            <p>.</p>
-            <p>.</p>
-            <h3 align="center">Bonds Maturing in +/- 5 Days </h3>  
+            {/* <p>.</p>
+            <p>.</p> */}
+            {/* <h3 align="center">Bonds Maturing in +/- 5 Days </h3>   */}
         {/* <div className="App">
         <DataTable value={bondsMaturing} stripedRows showGridlines tableStyle={{minWidth:'50rem'}}>
           <Column field="id" sortable header="ID" style={{display: 'none'}}> </Column>

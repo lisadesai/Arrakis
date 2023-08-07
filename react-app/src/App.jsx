@@ -16,6 +16,7 @@ import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
 import db2 from './images/db2.jpg'
+import { MatureBonds } from "./components/MatureBonds";
 
 const App = () => {
 
@@ -31,6 +32,7 @@ const App = () => {
               <Nav.Link href="/allbonds">All Bonds</Nav.Link>
               <Nav.Link href="/allbooks">All Books</Nav.Link>
               <Nav.Link href="/alltrades">All Trades</Nav.Link>
+              <Nav.Link href="/maturebonds">View Maturity</Nav.Link>
               <Nav.Link href="/adduser">Sign Up</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -38,6 +40,7 @@ const App = () => {
       </Navbar>
       <Routes>
         <Route path="allbonds" element={<Bonds/>} />
+        <Route path="maturebonds" element={<MatureBonds/>} />
         <Route path="allbooks" element={<Books/>} />
         <Route path="alltrades" element={<Trades/>} />
         <Route path="adduser" element={<UserForm/>} />
